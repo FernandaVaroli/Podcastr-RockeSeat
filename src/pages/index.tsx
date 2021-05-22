@@ -14,7 +14,7 @@ type Episode ={
   thumbnail: string;
   description: string;
   duration: number;
-  durationASString: string;
+  durationAsString: string;
   url: string;
   publishedAt: string;
 }
@@ -34,13 +34,19 @@ export default function Home({latestEpisodes, allEpisodes}: HomeProps) {
           {latestEpisodes.map(episodes =>{
             return(
               <li key={episodes.id}>
-                <Image width={192} height={192} src={episodes.thumbnail} alt={episodes.title}/>
+                <Image 
+                width={192} 
+                height={192} 
+                src={episodes.thumbnail} 
+                alt={episodes.title}
+                objectFit="cover"
+                />
 
                 <div className={styles.episodeDetails}>
                   <a href="">{episodes.title}</a>
                   <p>{episodes.members}</p>
                   <span>{episodes.publishedAt}</span>
-                  <span>{episodes.durationASString}</span>
+                  <span>{episodes.durationAsString}</span>
                 </div>
 
                 <button type="button">
